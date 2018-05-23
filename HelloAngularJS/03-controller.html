@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="ListPrenomCtrl">
+    <div>
+      Prénom : <input ng-model="prenom">
+      <button ng-click="ajouter()">+</button>
+    </div>
+    <p ng-repeat="prenom in prenoms"> <!-- TODO ng-repeat meme valeur -->
+      Bonjour <span ng-bind="prenom"></span> !
+      <button>-</button>
+    </p>
+  </div>
+  <script src="node_modules/angular/angular.js"></script>
+  <script>
+    angular.module('app', [])
+      .controller('ListPrenomCtrl', function($scope) {
+        $scope.prenom = '';
+        $scope.prenoms = ['Romain', 'Jean'];
+
+        $scope.ajouter = function() {
+          $scope.prenoms.push($scope.prenom);
+        };
+
+        // Sur le scope créer une fonction supprimer qui
+        // recevra en param l'indice de l'élement à supprimer
+        // (dans ng-repeat, l'indice : $index)
+        // et qui supprime du tableau Array.prototype.splice (MDN)
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-app>
+  <div>
+    Prénom : <input ng-model="prenom">
+    {{prenom}}
+  </div>
+  <div>
+    Prénoms : <input ng-model="prenoms" ng-list>
+  </div>
+  <p>
+    Tableau <span ng-bind="prenoms"></span> !
+  </p>
+  <ul>
+    <li ng-repeat="prenom in prenoms">
+      {{prenom}}
+      <button ng-if="$last">-</button>
+    </li>
+  </ul>
+  <script src="node_modules/angular/angular.js"></script>
+</body>
+</html>

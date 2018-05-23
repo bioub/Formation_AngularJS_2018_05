@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-app>
+  <div>
+    Prénom : <input ng-model="prenom">
+  </div>
+  <p>
+    Bonjour <span ng-bind="prenom"></span> !
+  </p>
+  <script src="node_modules/angular/angular.js"></script>
+  <!--
+    Concept :
+    - bootstrap/compile (via ng-app ou en JS)
+    parcourir le DOM à la recherche de directives connues
+    et exécuter les fonction compile associées
+    - data binding
+    * ng-bind (écoute la variable prénom), à chaque changement
+    écrit dans la balise associée (ici span)
+    * ng-model (2 way data-binding), le champs écoute
+    la variable prénom (comme ng-bind) et la variable prénom
+    est modifiée à chaque frappe clavier
+    - scope, un objet associée à une balise sur lequel
+    on déclare les variables
+    le scope racine (créé via ng-app) => rootScope (mauvaise pratique)
+  -->
+</body>
+</html>
