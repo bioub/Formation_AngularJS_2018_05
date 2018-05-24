@@ -10,6 +10,14 @@ var coords = {
   y: 20,
 };
 
+const json = JSON.stringify(coords); // ES5
+console.log(json); // {"x":10,"y":20}
+
+// ... réseau ...
+
+const obj = JSON.parse(json);
+console.log('x', obj.x);
+
 coords.z = 30; // ajoute ou modifie
 delete coords.z; // supprime
 
@@ -34,6 +42,8 @@ function coords3dFactory(x, y, z) {
     getX: function() { return this.x },
   };
 }
+
+const coords3dFactoryES6 = (x = 0, y = 0, z = 0) => ({x, y, z});
 
 const coords3dA = coords3dFactory(10);
 const coords3dB = coords3dFactory(20, 30);
@@ -70,3 +80,8 @@ console.log(Contact.getClass());
 console.log(romain.hello());
 console.log(romain.hasOwnProperty('prenom')); // true
 console.log(romain.hasOwnProperty('hello')); // false
+
+
+var jean = new Contact('Jean');
+
+console.log(romain.hello === jean.hello); // true

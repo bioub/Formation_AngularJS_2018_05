@@ -24,10 +24,10 @@ console.log('Fin');
 // ^
 // |
 // |
-// |    idle    lg    lg   idle   lg
-// |lg ...⟳... cb2 - cb3 ...⟳... cb1
-// +------------500ms-----------------------------> temps
-//s:Fin         2     3            1
+// |             idle    lg    lg   idle   lg
+// |st-st-st-lg ...⟳... cb2 - cb3 ...⟳... cb1
+// +---------------------500ms-----------------------------> temps
+//s:         Fin         2     3            1
 
 // file d'attente (500ms) : cb2 - cb3
 // file d'attente (501ms) : cb3

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="HorlogeCtrl">
+    {{now | date : 'HH:mm:ss'}}
+  </div>
+  <script src="node_modules/angular/angular.js"></script>
+  <script>
+    angular.module('app', [])
+      .controller('HorlogeCtrl', function($scope, $interval) {
+        $scope.now = new Date();
+
+        $interval(function() {
+          $scope.now = new Date();
+          // $scope.$digest(); // lance la détection de changement
+        }, 1000);
+      });
+  </script>
+</body>
+</html>

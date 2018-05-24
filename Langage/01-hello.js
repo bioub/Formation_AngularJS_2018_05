@@ -1,8 +1,8 @@
 // (function (exports, require, module, __filename, __dirname) {
 /**
  * Additionne 2 nombres
- * @param {number} a Le 1er nombre
- * @param {number} b Le 2e nombre
+ * @param {number|string} a Le 1er nombre
+ * @param {number|string} b Le 2e nombre
  * @returns {number} La somme
  */
 function sum(a, b) {

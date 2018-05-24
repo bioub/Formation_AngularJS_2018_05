@@ -12,9 +12,9 @@
       Prénom : <input ng-model="prenom">
       <button ng-click="ajouter()">+</button>
     </div>
-    <p ng-repeat="prenom in prenoms"> <!-- TODO ng-repeat meme valeur -->
+    <p ng-repeat="prenom in prenoms track by $index"> <!-- TODO ng-repeat meme valeur -->
       Bonjour <span ng-bind="prenom"></span> !
-      <button>-</button>
+      <button ng-click="supprimer($index)">-</button>
     </p>
   </div>
   <script src="node_modules/angular/angular.js"></script>
@@ -25,7 +25,11 @@
         $scope.prenoms = ['Romain', 'Jean'];
 
         $scope.ajouter = function() {
-          $scope.prenoms.push($scope.prenom);
+          $scope.prenoms.unshift($scope.prenom);
+        };
+
+        $scope.supprimer = function(i) {
+          $scope.prenoms.splice(i, 1);
         };
 
         // Sur le scope créer une fonction supprimer qui
