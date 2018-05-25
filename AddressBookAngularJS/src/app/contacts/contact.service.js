@@ -11,6 +11,9 @@ class ContactService {
   getById(id) {
     return this.$http.get('http://localhost:3000/users/' + id);
   }
+  remove(id) {
+    return this.$http.delete('http://localhost:3000/users/' + id);
+  }
   create(contact) {
     return this.$http.post('http://localhost:3000/users', contact);
   }

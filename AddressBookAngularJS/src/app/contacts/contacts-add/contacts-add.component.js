@@ -12,8 +12,7 @@ class ContactsAddComponent {
     // this ici === $ctrl dans le template
     this.contactService.create(this.contact)
       .then((res) => {
-        this.$state.go('^.show', { id: res.data.id });
-        this.contactService.reload = ++this.contactService.reload;
+        this.$state.go('^.show', {id: res.data.id}, {reload: true});
       });
   }
 }

@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "Langage"
+		},
+		{
+			"path": "HelloAngularJS"
+		},
+		{
+			"path": "AddressBookAngularJS"
+		},
+		{
+			"path": "AddressBookAngular"
+		}
+	],
+	"settings": {}
+}

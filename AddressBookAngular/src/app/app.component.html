@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="[]">AddressBook</a>
+
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a class="nav-link" [routerLink]="['contacts']">Liste</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['contacts', 'add']">Ajouter</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+  <app-horloge></app-horloge>
+</div>

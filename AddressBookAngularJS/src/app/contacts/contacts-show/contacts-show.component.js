@@ -5,9 +5,17 @@ const ContactsShowComponentModule = angular.module('contacts/contacts-show/conta
 
 class ContactsShowComponent {
   constructor(contactService, $state) {
+    this.contactService = contactService;
+    this.$state = $state;
     contactService.getById($state.params.id)
       .then((res) => {
         this.contact = res.data;
+      });
+  }
+  delete() {
+    this.contactService.remove(this.contact.id)
+      .then(() => {
+        this.$state.go('^', {}, {reload: true});
       });
   }
 }

@@ -1,0 +1,16 @@
+<div class="row my-3">
+  <div class="col col-4">
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action"
+        routerLinkActive="active"
+        *ngFor="let contact of contacts"
+        [routerLink]="[contact.id]"
+      >
+        {{contact.name}}
+      </a>
+    </div>
+  </div>
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</div>
