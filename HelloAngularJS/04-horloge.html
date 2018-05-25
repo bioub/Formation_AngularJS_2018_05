@@ -6,21 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-strict-di="true">
   <div ng-controller="HorlogeCtrl">
     {{now | date : 'HH:mm:ss'}}
   </div>
   <script src="node_modules/angular/angular.js"></script>
   <script>
     angular.module('app', [])
-      .controller('HorlogeCtrl', function($scope, $interval) {
+      .controller('HorlogeCtrl', ['$scope', '$interval', function($scope, $interval) {
         $scope.now = new Date();
 
         $interval(function() {
           $scope.now = new Date();
           // $scope.$digest(); // lance la détection de changement
         }, 1000);
-      });
+      }]);
   </script>
 </body>
 </html>

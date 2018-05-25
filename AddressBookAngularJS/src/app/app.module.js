@@ -5,7 +5,6 @@ import ContactsModuleName from './contacts/contacts.module';
 const AppModule = angular.module('app.module', [
   SharedModuleName,
   ContactsModuleName,
-
 ]);
 
 

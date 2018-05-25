@@ -5,5 +5,4 @@ const SharedModule = angular.module('shared/shared.module', [
   HorlogeComponentModuleName
 ]);
 
-
 export default SharedModule.name;
