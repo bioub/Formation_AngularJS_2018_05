@@ -3,10 +3,10 @@ import angular from 'angular';
 const module = angular.module('contacts/contacts-list/contacts-list.controller', []);
 
 class ContactListCtrl {
-  constructor($http, $scope) {
+  constructor(contactService, $scope) {
     $scope.contacts = [];
 
-    $http.get('https://jsonplaceholder.typicode.com/users')
+    contactService.getList()
           .then((res) => {
             $scope.contacts = res.data;
           });
@@ -15,10 +15,10 @@ class ContactListCtrl {
 
 // annoter les services (permet de minifier le code)
 // version 1 :
-// ContactListCtrl.$inject = ['$http', '$scope'];
+// ContactListCtrl.$inject = ['contactService', '$scope'];
 // module.controller('ContactListCtrl', ContactListCtrl);
 
 // Version 2 :
-module.controller('ContactListCtrl', ['$http', '$scope', ContactListCtrl]);
+module.controller('ContactListCtrl', ['contactService', '$scope', ContactListCtrl]);
 
 export default module.name;

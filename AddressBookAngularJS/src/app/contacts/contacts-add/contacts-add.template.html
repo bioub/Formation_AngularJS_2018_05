@@ -1,1 +1,28 @@
-Coucou Add Component
+<style>
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+
+  /*
+  input + span {
+    display: none;
+  }
+
+  input.ng-invalid.ng-touched + span {
+    display: inline;
+  }
+  */
+</style>
+<form name="formContact" novalidate ng-submit="formContact.$valid && $ctrl.ajouter()">
+  <p>
+    Name :
+    <input name="inputName" ng-model="$ctrl.contact.name" required>
+    <span ng-if="formContact.inputName.$invalid && formContact.inputName.$touched">
+      nom est obligatoire
+    </span>
+  </p>
+  <p>
+    Email : <input type="email" ng-model="$ctrl.contact.email">
+  </p>
+  <button>Ajouter</button>
+</form>

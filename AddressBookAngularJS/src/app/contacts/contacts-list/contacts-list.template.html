@@ -1,6 +1,25 @@
-<ul>
-  <li ng-repeat="contact in contacts">
-    {{contact.name}}
-  </li>
-</ul>
-<ui-view></ui-view>
+<style>
+  .contacts-container {
+    display: flex;
+  }
+
+  .contacts-container > *:first-child {
+    width: 30%;
+  }
+
+  .contacts-container > *:last-child {
+    width: 70%;
+  }
+
+  a.current {
+    font-weight: bold;
+  }
+</style>
+<div class="contacts-container">
+  <ul>
+    <li ng-repeat="contact in contacts">
+      <a ui-sref=".show({id: contact.id})" ui-sref-active="current">{{contact.name}}</a>
+    </li>
+  </ul>
+  <ui-view></ui-view>
+</div>
